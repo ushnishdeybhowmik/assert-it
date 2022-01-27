@@ -1,10 +1,10 @@
 module.exports = (sequelize, DataTypes) => {
-  const client_contact = sequelize.define("client_data", {
-    id : {
+  const client_contact = sequelize.define("client_contact", {
+    id: {
       type: DataTypes.INTEGER,
       allowNull: false,
-      autoIncrement : true,
-      primaryKey : true
+      autoIncrement: true,
+      primaryKey: true,
     },
     phone_no: {
       type: DataTypes.STRING,

@@ -29,7 +29,7 @@ const getSingleData = async (req, res) => {
   res.status(200).send(data);
 };
 
-const updateData = (req, res) => {
+const updateData = async (req, res) => {
   let phone_no = req.params.phone_no;
 
   const clientData = await client_data.update(req.body, {
@@ -41,7 +41,7 @@ const updateData = (req, res) => {
   res.status(200).send(clientData);
 };
 
-const deleteData = (req, res) => {
+const deleteData = async (req, res) => {
   let phone_no = req.params.phone_no;
 
   const clientData = await client_data.destroy({
@@ -53,18 +53,17 @@ const deleteData = (req, res) => {
   res.status(200).send(clientData);
 };
 
-const deleteAllData = (req, res) => {
+const deleteAllData = async (req, res) => {
   const clientData = await client_data.destroy({ where: {} });
 
   res.status(200).send(clientData);
 };
 
-
 module.exports = {
-    addData,
-    getAllData,
-    getSingleData, 
-    updateData,
-    deleteData,
-    deleteAllData
-}
+  addData,
+  getAllData,
+  getSingleData,
+  updateData,
+  deleteData,
+  deleteAllData,
+};

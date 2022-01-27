@@ -9,7 +9,6 @@ const sequelize = new Sequelize(
   {
     host: db_config.HOST,
     dialect: db_config.DIALECT,
-    operatorsAliases: false,
 
     pool: {
       max: db_config.pool.max,
@@ -22,7 +21,7 @@ const sequelize = new Sequelize(
 
 sequelize
   .authenticate()
-  .then(() => console.log("connnected"))
+  .then(() => console.log(`Connected to ${db_config.DB}`))
   .catch((err) => console.log(`Error : ${err}`));
 
 const db = {};
@@ -33,6 +32,7 @@ db.sequelize = sequelize;
 db.client_data = require("./client_data_model.js")(sequelize, DataTypes);
 db.client_contact = require("./client_contact_model.js")(sequelize, DataTypes);
 
-db.sequelize.sync({ force: false }).then(() => console.log("Resync Done!"));
+//NOT REQUIRED UNLESS NEEDED.
+// db.sequelize.sync({ force: false }).then(() => console.log("Resync Done!"));
 
 module.exports = db;

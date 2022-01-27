@@ -6,7 +6,7 @@ module.exports = (sequelize, DataTypes) => {
     },
     phone_no: {
       type: DataTypes.STRING,
-      primaryKey : true,
+      primaryKey: true,
       allowNull: false,
     },
     address: {
@@ -19,5 +19,5 @@ module.exports = (sequelize, DataTypes) => {
     },
   });
 
-  return client_data
+  return client_data;
 };

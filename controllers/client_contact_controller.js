@@ -13,12 +13,27 @@ const addData = async (req, res) => {
   res.status(200).send(clientData);
 };
 
+const getAllData = async (req, res) => {
+  const clientData = await client_contact.findAll({});
+  res.status(200).send(clientData);
+};
+
+const getSingleData = async (req, res) => {
+  let id = req.params.id;
+  let data = await client_data.findOne({
+    where: {
+      id: id,
+    },
+  });
+  res.status(200).send(data);
+};
+
 const deleteData = async (req, res) => {
   let id = req.params.id;
 
   const clientData = await client_contact.destroy({
     where: {
-      id : id,
+      id: id,
     },
   });
 
@@ -31,7 +46,9 @@ const deleteAllData = async (req, res) => {
 };
 
 module.exports = {
-    addData,
-    deleteData,
-    deleteAllData
-}
+  addData,
+  getAllData,
+  getSingleData,
+  deleteData,
+  deleteAllData,
+};
