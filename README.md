@@ -1,1 +1,1 @@
-# assert-it
+# REST API with EXPRESS, CORS and SEQUELIZE.
