@@ -14,11 +14,11 @@ const addData = async (req, res) => {
 };
 
 const deleteData = async (req, res) => {
-  let phone_no = req.params.phone_no;
+  let id = req.params.id;
 
   const clientData = await client_contact.destroy({
     where: {
-      phone_no: phone_no,
+      id : id,
     },
   });
 
